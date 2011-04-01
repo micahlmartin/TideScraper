@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DotNetOpenAuth">
+      <HintPath>..\..\binaries\DotNetOpenAuth.dll</HintPath>
+    </Reference>
     <Reference Include="MongoDB.Bson">
       <HintPath>..\..\binaries\MongoDB.Bson.dll</HintPath>
     </Reference>
@@ -48,6 +51,7 @@
   <ItemGroup>
     <Compile Include="CollectionNames.cs" />
     <Compile Include="DatabaseNames.cs" />
+    <Compile Include="IUserRepository.cs" />
     <Compile Include="ITideRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MongoTideRepository.cs" />

@@ -48,5 +48,10 @@ namespace TideScraper.Core
         {
             get { return int.Parse(ConfigurationManager.AppSettings["DefaultStationLimit"]); }
         }
+
+        public static string OAuthRealm
+        {
+            get { return ConfigurationManager.AppSettings["OAuthRealm"]; }
+        }
     }
 }

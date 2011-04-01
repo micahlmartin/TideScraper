@@ -16,7 +16,7 @@ namespace TideScraper.Data
             var server = MongoServer.Create(Settings.TidesMongoConnection);
             server.Connect();
 
-            var collection = server[DatabaseNames.Tides][CollectionNames.Stations];
+            var collection = server[DatabaseNames.Tides][TidesCollectionNames.Stations];
             var station = collection.FindOneAs<Station>(Query.EQ("StationId", stationId));
             server.Disconnect();
 
@@ -28,7 +28,7 @@ namespace TideScraper.Data
             var server = MongoServer.Create(Settings.TidesMongoConnection);
             server.Connect();
 
-            var collection = server[DatabaseNames.Tides][CollectionNames.GetPredictionCollectionName(date.Year)];
+            var collection = server[DatabaseNames.Tides][TidesCollectionNames.GetPredictionCollectionName(date.Year)];
             var query = new QueryDocument();
             var predictions = collection.FindAs<Prediction>(Query.And(Query.EQ("StationId", stationId), Query.GTE("TimeStamp", date.Date/*.ToUniversalTime()*/).LT(date.Date.AddDays(1)/*.ToUniversalTime()*/))).ToList();
 
@@ -43,8 +43,8 @@ namespace TideScraper.Data
             server.Connect();
 
             var db = server[DatabaseNames.Tides];
-            if (db.CollectionExists(CollectionNames.GetPredictionCollectionName(year)))
-                db.DropCollection(CollectionNames.GetPredictionCollectionName(year));
+            if (db.CollectionExists(TidesCollectionNames.GetPredictionCollectionName(year)))
+                db.DropCollection(TidesCollectionNames.GetPredictionCollectionName(year));
 
             server.Disconnect();
         }
@@ -54,7 +54,7 @@ namespace TideScraper.Data
             var server = MongoServer.Create(Settings.TidesMongoConnection);
             server.Connect();
 
-            var collection = server[DatabaseNames.Tides][CollectionNames.Stations];
+            var collection = server[DatabaseNames.Tides][TidesCollectionNames.Stations];
 
             var stations = collection.FindAs<Station>(Query.EQ("IsHarmonic", true));
 
@@ -70,7 +70,7 @@ namespace TideScraper.Data
 
             var db = server[DatabaseNames.Tides];
 
-            var collection = db[CollectionNames.GetPredictionCollectionName(year)];
+            var collection = db[TidesCollectionNames.GetPredictionCollectionName(year)];
             collection.EnsureIndex(IndexKeys.Ascending("StationId"));
 
             collection.InsertBatch<Prediction>(predictions);
@@ -85,7 +85,7 @@ namespace TideScraper.Data
             var server = MongoServer.Create(Settings.TidesMongoConnection);
             server.Connect();
 
-            var stationsCollection = server[DatabaseNames.Tides][CollectionNames.Stations];
+            var stationsCollection = server[DatabaseNames.Tides][TidesCollectionNames.Stations];
             var result = stationsCollection.GeoNearAs<Station>(Query.EQ("IsComplete", true), longitude, latitude, maxItems, GeoNearOptions.SetSpherical(true).SetMaxDistance(range).SetDistanceMultiplier(range / radians));
 
             server.Disconnect();
@@ -98,7 +98,7 @@ namespace TideScraper.Data
             var server = MongoServer.Create(Settings.TidesMongoConnection);
             server.Connect();
 
-            var stationsCollection = server[DatabaseNames.Tides][CollectionNames.Stations];
+            var stationsCollection = server[DatabaseNames.Tides][TidesCollectionNames.Stations];
             var result = stationsCollection.FindAs<Station>(query).ToList();
 
             server.Disconnect();
@@ -112,7 +112,7 @@ namespace TideScraper.Data
             var server = MongoServer.Create(Settings.TidesMongoConnection);
             server.Connect();
 
-            var stationsCollection = server[DatabaseNames.Tides][CollectionNames.Stations];
+            var stationsCollection = server[DatabaseNames.Tides][TidesCollectionNames.Stations];
 
             foreach (var station in stations)
             {

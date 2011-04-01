@@ -5,9 +5,8 @@ using System.Text;
 
 namespace TideScraper.Data
 {
-    static class DatabaseNames
+    public class IUserRepository
     {
-        public static string Tides = "tides";
-        public static string Authentication = "auth";
+        
     }
 }

@@ -61,7 +61,7 @@ namespace TideScraper.Core.Models
         {
             return !(a == b);
         }
-
+    
 
         
     }
