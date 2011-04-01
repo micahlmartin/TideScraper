@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:intf="http://opendap.co-ops.nos.noaa.gov/axis/webservices/predictions/wsdl" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:impl="http://opendap.co-ops.nos.noaa.gov/axis/webservices/predictions/wsdl" targetNamespace="http://opendap.co-ops.nos.noaa.gov/axis/webservices/predictions/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://opendap.co-ops.nos.noaa.gov/axis/webservices/predictions/wsdl">
+      <xsd:element name="Parameters">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="stationId" type="xsd:string" />
+            <xsd:element name="beginDate" type="xsd:string" />
+            <xsd:element name="endDate" type="xsd:string" />
+            <xsd:element name="datum" type="xsd:int" />
+            <xsd:element name="unit" type="xsd:int" />
+            <xsd:element name="timeZone" type="xsd:int" />
+            <xsd:element name="dataInterval" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="Data">
+        <xsd:sequence>
+          <xsd:element name="timeStamp" type="xsd:string" />
+          <xsd:element name="pred" type="xsd:double" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfData">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="impl:Data" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="PredictionsValues">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="data" type="impl:ArrayOfData" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="PredictionsAndMetadata">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="stationId" type="xsd:string" />
+            <xsd:element name="stationName" type="xsd:string" />
+            <xsd:element name="latitude" type="xsd:float" />
+            <xsd:element name="longitude" type="xsd:float" />
+            <xsd:element name="state" type="xsd:string" />
+            <xsd:element name="dataSource" type="xsd:string" />
+            <xsd:element name="COOPSDisclaimer" type="xsd:string" />
+            <xsd:element name="beginDate" type="xsd:string" />
+            <xsd:element name="endDate" type="xsd:string" />
+            <xsd:element name="datum" type="xsd:string" />
+            <xsd:element name="unit" type="xsd:string" />
+            <xsd:element name="timeZone" type="xsd:string" />
+            <xsd:element name="dataInterval" type="xsd:string" />
+            <xsd:element name="data" type="impl:ArrayOfData" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getPredictionsAndMetadataResponse">
+    <wsdl:part name="PredictionsAndMetadata" element="impl:PredictionsAndMetadata" />
+  </wsdl:message>
+  <wsdl:message name="getPredictionsResponse">
+    <wsdl:part name="PredictionsValues" element="impl:PredictionsValues" />
+  </wsdl:message>
+  <wsdl:message name="getPredictionsAndMetadataRequest">
+    <wsdl:part name="Parameters" element="impl:Parameters" />
+  </wsdl:message>
+  <wsdl:message name="getPredictionsRequest">
+    <wsdl:part name="Parameters" element="impl:Parameters" />
+  </wsdl:message>
+  <wsdl:portType name="PredictionsPortType">
+    <wsdl:operation name="getPredictions" parameterOrder="Parameters">
+      <wsdl:input name="getPredictionsRequest" message="impl:getPredictionsRequest" />
+      <wsdl:output name="getPredictionsResponse" message="impl:getPredictionsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getPredictionsAndMetadata" parameterOrder="Parameters">
+      <wsdl:input name="getPredictionsAndMetadataRequest" message="impl:getPredictionsAndMetadataRequest" />
+      <wsdl:output name="getPredictionsAndMetadataResponse" message="impl:getPredictionsAndMetadataResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PredictionsSoapBinding" type="impl:PredictionsPortType">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getPredictions">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getPredictionsRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getPredictionsResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPredictionsAndMetadata">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getPredictionsAndMetadataRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getPredictionsAndMetadataResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PredictionsService">
+    <wsdl:port name="Predictions" binding="impl:PredictionsSoapBinding">
+      <wsdlsoap:address location="http://opendap.co-ops.nos.noaa.gov/axis/services/Predictions" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TideScraper.Web.Api", "TideScraper.Web.Api\TideScraper.Web.Api.csproj", "{F7FF3CAA-0D5A-4404-B81C-728CC63AE85D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TideScraper.Services", "TideScraper.Services\TideScraper.Services.csproj", "{2DB47740-C2A0-4DC5-8FF7-332E1115722B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TideScraper.Data", "TideScraper.Data\TideScraper.Data.csproj", "{AF10BD16-4ABF-49E8-8D3A-05D5C33F60FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TideScraper.Core", "TideScraper.Core\TideScraper.Core.csproj", "{108E8973-E396-4D57-964E-9CF1E8FA65E2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F7FF3CAA-0D5A-4404-B81C-728CC63AE85D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7FF3CAA-0D5A-4404-B81C-728CC63AE85D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7FF3CAA-0D5A-4404-B81C-728CC63AE85D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7FF3CAA-0D5A-4404-B81C-728CC63AE85D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DB47740-C2A0-4DC5-8FF7-332E1115722B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DB47740-C2A0-4DC5-8FF7-332E1115722B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DB47740-C2A0-4DC5-8FF7-332E1115722B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DB47740-C2A0-4DC5-8FF7-332E1115722B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF10BD16-4ABF-49E8-8D3A-05D5C33F60FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF10BD16-4ABF-49E8-8D3A-05D5C33F60FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF10BD16-4ABF-49E8-8D3A-05D5C33F60FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF10BD16-4ABF-49E8-8D3A-05D5C33F60FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{108E8973-E396-4D57-964E-9CF1E8FA65E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{108E8973-E396-4D57-964E-9CF1E8FA65E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{108E8973-E396-4D57-964E-9CF1E8FA65E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{108E8973-E396-4D57-964E-9CF1E8FA65E2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

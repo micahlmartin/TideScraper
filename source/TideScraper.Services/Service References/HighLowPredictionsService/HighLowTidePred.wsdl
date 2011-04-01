@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:intf="http://opendap.co-ops.nos.noaa.gov/axis/webservices/highlowtidepred/wsdl" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:impl="http://opendap.co-ops.nos.noaa.gov/axis/webservices/highlowtidepred/wsdl" targetNamespace="http://opendap.co-ops.nos.noaa.gov/axis/webservices/highlowtidepred/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://opendap.co-ops.nos.noaa.gov/axis/webservices/highlowtidepred/wsdl">
+      <xsd:element name="Parameters">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="stationId" type="xsd:string" />
+            <xsd:element name="beginDate" type="xsd:string" />
+            <xsd:element name="endDate" type="xsd:string" />
+            <xsd:element name="datum" type="xsd:int" />
+            <xsd:element name="unit" type="xsd:int" />
+            <xsd:element name="timeZone" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="highlowtidepred">
+        <xsd:sequence>
+          <xsd:element name="time" type="xsd:string" />
+          <xsd:element name="pred" type="xsd:double" />
+          <xsd:element name="type" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Data">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="data" type="impl:highlowtidepred" />
+        </xsd:sequence>
+        <xsd:attribute name="date" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfData">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="impl:Data" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="HighLowValues">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="HighLowValues" nillable="true" type="impl:ArrayOfData" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="HighLowAndMetadata">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="stationId" type="xsd:string" />
+            <xsd:element name="stationName" type="xsd:string" />
+            <xsd:element name="latitude" type="xsd:float" />
+            <xsd:element name="longitude" type="xsd:float" />
+            <xsd:element name="state" type="xsd:string" />
+            <xsd:element name="dataSource" type="xsd:string" />
+            <xsd:element name="COOPSDisclaimer" type="xsd:string" />
+            <xsd:element name="beginDate" type="xsd:string" />
+            <xsd:element name="endDate" type="xsd:string" />
+            <xsd:element name="datum" type="xsd:string" />
+            <xsd:element name="unit" type="xsd:string" />
+            <xsd:element name="timeZone" type="xsd:string" />
+            <xsd:element name="HighLowValues" nillable="true" type="impl:ArrayOfData" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getHLPredAndMetadataResponse">
+    <wsdl:part name="HighLowAndMetadata" element="impl:HighLowAndMetadata" />
+  </wsdl:message>
+  <wsdl:message name="getHLPredAndMetadataRequest">
+    <wsdl:part name="Parameters" element="impl:Parameters" />
+  </wsdl:message>
+  <wsdl:message name="getHighLowTidePredictionsResponse">
+    <wsdl:part name="HighLowValues" element="impl:HighLowValues" />
+  </wsdl:message>
+  <wsdl:message name="getHighLowTidePredictionsRequest">
+    <wsdl:part name="Parameters" element="impl:Parameters" />
+  </wsdl:message>
+  <wsdl:portType name="highlowtidepredPortType">
+    <wsdl:operation name="getHighLowTidePredictions" parameterOrder="Parameters">
+      <wsdl:input name="getHighLowTidePredictionsRequest" message="impl:getHighLowTidePredictionsRequest" />
+      <wsdl:output name="getHighLowTidePredictionsResponse" message="impl:getHighLowTidePredictionsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getHLPredAndMetadata" parameterOrder="Parameters">
+      <wsdl:input name="getHLPredAndMetadataRequest" message="impl:getHLPredAndMetadataRequest" />
+      <wsdl:output name="getHLPredAndMetadataResponse" message="impl:getHLPredAndMetadataResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="highlowtidepredSoapBinding" type="impl:highlowtidepredPortType">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getHighLowTidePredictions">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getHighLowTidePredictionsRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getHighLowTidePredictionsResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getHLPredAndMetadata">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getHLPredAndMetadataRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getHLPredAndMetadataResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="highlowtidepredService">
+    <wsdl:port name="highlowtidepred" binding="impl:highlowtidepredSoapBinding">
+      <wsdlsoap:address location="http://opendap.co-ops.nos.noaa.gov/axis/services/highlowtidepred" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
