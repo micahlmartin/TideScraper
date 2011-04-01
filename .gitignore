@@ -74,3 +74,4 @@ deploy/artifacts/
 *.BASE.*
 *.LOCAL.*
 *.REMOTE.*
+*.Publish.xml
