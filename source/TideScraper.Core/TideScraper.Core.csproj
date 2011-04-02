@@ -31,6 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="OAuth.Core">
+      <HintPath>..\..\binaries\OAuth.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="OAuth.Web">
+      <HintPath>..\..\binaries\OAuth.Web.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -45,7 +51,10 @@
   <ItemGroup>
     <Compile Include="DirectionUtils.cs" />
     <Compile Include="ExpandoExtensions.cs" />
+    <Compile Include="Models\AccessToken.cs" />
+    <Compile Include="Models\Consumer.cs" />
     <Compile Include="Models\Nonce.cs" />
+    <Compile Include="Models\RequestToken.cs" />
     <Compile Include="Models\TideDirection.cs" />
     <Compile Include="Models\TideLevel.cs" />
     <Compile Include="Models\Location.cs" />

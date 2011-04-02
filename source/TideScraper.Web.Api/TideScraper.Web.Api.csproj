@@ -34,7 +34,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-
+    <Reference Include="MongoDB.Bson, Version=1.0.1.27442, Culture=neutral, PublicKeyToken=f686731cfb9cc103, processorArchitecture=MSIL">
+      <HintPath>..\..\binaries\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver, Version=1.0.1.27443, Culture=neutral, PublicKeyToken=f686731cfb9cc103, processorArchitecture=MSIL">
+      <HintPath>..\..\binaries\MongoDB.Driver.dll</HintPath>
+    </Reference>
     <Reference Include="OAuth.Core">
       <HintPath>..\..\binaries\OAuth.Core.dll</HintPath>
     </Reference>
@@ -86,11 +91,16 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="OAuth\ConsumerStore.cs" />
+    <Compile Include="OAuth\TokenStore.cs" />
+    <Compile Include="OAuth\NonceStore.cs" />
     <Compile Include="OAuth\OAuthBinder.cs" />
     <Compile Include="OAuth\OAuthExceptionResult.cs" />
     <Compile Include="OAuth\OAuthSecuredAttribute.cs" />
     <Compile Include="OAuth\OAuthTokenResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StructureMap\StructureMapBootStrapper.cs" />
+    <Compile Include="StructureMap\StructureMapControllerFactory.cs" />
     <Compile Include="Utilities\JSONActionResult.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -141,12 +151,17 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TideScraper.Core\TideScraper.Core.csproj">
       <Project>{108E8973-E396-4D57-964E-9CF1E8FA65E2}</Project>
       <Name>TideScraper.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TideScraper.Data\TideScraper.Data.csproj">
+      <Project>{AF10BD16-4ABF-49E8-8D3A-05D5C33F60FF}</Project>
+      <Name>TideScraper.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\TideScraper.Services\TideScraper.Services.csproj">
       <Project>{2DB47740-C2A0-4DC5-8FF7-332E1115722B}</Project>

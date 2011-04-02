@@ -5,14 +5,18 @@ using System.Web;
 using System.Web.Mvc;
 using TideScraper.Services;
 using TideScraper.Core;
+using TideScraper.Web.Api.OAuth;
 
 namespace TideScraper.Web.Api.Controllers
 {
     public class ApiController : AsyncController
     {
-        
-        private ITideService _tideService = new TideService();
+        private ITideService _tideService;
 
+        public ApiController(ITideService tideService)
+        {
+            _tideService = tideService;
+        }
 
         public ActionResult NearbyStations(double lat, double lng, double range, string measurement, int? limit)
         {
@@ -21,6 +25,7 @@ namespace TideScraper.Web.Api.Controllers
             return Json(results, JsonRequestBehavior.AllowGet);
         }
 
+        [OAuthSecured]
         public ActionResult StationsKml()
         {
             return View();

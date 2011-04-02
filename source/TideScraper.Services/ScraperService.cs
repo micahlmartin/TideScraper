@@ -22,10 +22,10 @@ namespace TideScraper.Services
         private ITideRepository _tideRepository;
         private IGeoService _geoService;
 
-        public ScraperService()
+        public ScraperService(ITideRepository tideRepository, IGeoService geoService)
         {
-            _tideRepository = new MongoTideRepository();
-            _geoService = new GeoService();
+            _tideRepository = tideRepository;
+            _geoService = geoService;
         }
 
         public void ImportStationsAsync()

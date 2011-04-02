@@ -11,15 +11,15 @@ using TideScraper.Data;
 
 namespace TideScraper.Services
 {
-    public class TideService : ITideService
+    public class TideService : ServiceBase, ITideService
     {
         private ITideRepository _tideRepository;
         private const string UTCFormat = "yyyy-MM-ddThh:mmZ";
 
 
-        public TideService()
+        public TideService(ITideRepository tideRepository)
         {
-            _tideRepository = new MongoTideRepository();
+            _tideRepository = tideRepository;
         }
         
         public ServiceResult<dynamic> GetStationsNearby(double lat, double lon, double range, string measurement, int maxItems)

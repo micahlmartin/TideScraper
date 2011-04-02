@@ -53,5 +53,15 @@ namespace TideScraper.Core
         {
             get { return ConfigurationManager.AppSettings["OAuthRealm"]; }
         }
+
+        public static int OAuthTimeoutMinutes
+        {
+            get { return int.Parse(ConfigurationManager.AppSettings["OAuthTimeoutMinutes"]); }
+        }
+
+        public static int OAuthExpirationDays
+        {
+            get { return int.Parse(ConfigurationManager.AppSettings["OAuthExpirationDays"]); }
+        }
     }
 }

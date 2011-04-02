@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using TideScraper.Web.Api.StructureMap;
 
 namespace TideScraper.Web.Api
 {
@@ -35,6 +36,8 @@ namespace TideScraper.Web.Api
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+
+            new StructureMapBootStrapper().BootstrapStructureMap();
         }
     }
 }

@@ -9,7 +9,12 @@ namespace TideScraper.Web.Api.Controllers
 {
     public class ScraperController : AsyncController
     {
-        private IScraperService _scraperService = new ScraperService();
+        private IScraperService _scraperService;
+
+        public ScraperController(IScraperService scraperService)
+        {
+            _scraperService = scraperService;
+        }
 
         [NoAsyncTimeout]
         public void ImportStationsAsync()

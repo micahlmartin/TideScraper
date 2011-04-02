@@ -17,9 +17,11 @@ namespace TideScraper.Web.Api.OAuth
         public object BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
         {
             if (OAuthContextBuilder == null)
-                throw new NullReferenceException("OAuthContextBinder was not set please use an IoC container to do this");
+                throw new NullReferenceException("OAuthContextBuilder");
+
             if (bindingContext.ModelType.IsAssignableFrom(typeof(IOAuthContext)))
                 return OAuthContextBuilder.FromHttpRequest(controllerContext.HttpContext.Request);
+
             return null;
         }
 

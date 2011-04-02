@@ -16,6 +16,9 @@ namespace TideScraper.Data
 
     static class AuthenticationCollectionNames
     {
-        public static string Nonce = "none";
+        public static string Nonce = "nonce";
+        public static string Consumers = "consumers";
+        public static string RequestTokens = "request_tokens";
+        public static string AccessTokens = "access_tokens";
     }
 }
