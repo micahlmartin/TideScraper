@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using TideScraper.Core.Models;
 
-namespace TideScraper.Data
+namespace TideScraper.Services
 {
-    public interface IAuthRepository
+    public interface IAccountService
     {
-
+        
     }
 }

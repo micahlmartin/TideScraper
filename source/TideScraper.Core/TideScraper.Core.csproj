@@ -31,12 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="OAuth.Core">
-      <HintPath>..\..\binaries\OAuth.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="OAuth.Web">
-      <HintPath>..\..\binaries\OAuth.Web.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -51,10 +45,7 @@
   <ItemGroup>
     <Compile Include="DirectionUtils.cs" />
     <Compile Include="ExpandoExtensions.cs" />
-    <Compile Include="Models\AccessToken.cs" />
     <Compile Include="Models\Consumer.cs" />
-    <Compile Include="Models\Nonce.cs" />
-    <Compile Include="Models\RequestToken.cs" />
     <Compile Include="Models\TideDirection.cs" />
     <Compile Include="Models\TideLevel.cs" />
     <Compile Include="Models\Location.cs" />
@@ -63,6 +54,18 @@
     <Compile Include="Models\Station.cs" />
     <Compile Include="PredictionUtils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\AuthorizationResult.cs" />
+    <Compile Include="Security\AuthorizationTokens.cs" />
+    <Compile Include="Security\AuthorizeRequestData.cs" />
+    <Compile Include="Security\AuthorizeWebRequest.cs" />
+    <Compile Include="Security\IConsumer.cs" />
+    <Compile Include="Security\HmacSha1SignatureGenerator.cs" />
+    <Compile Include="Security\IAuthorizeWebRequest.cs" />
+    <Compile Include="Security\IConsumerRepository.cs" />
+    <Compile Include="Security\ISignatureGenerator.cs" />
+    <Compile Include="Security\ISignatureGeneratorFactory.cs" />
+    <Compile Include="Security\SignatureGeneratorFactory.cs" />
+    <Compile Include="Security\SignatureGeneratorNames.cs" />
     <Compile Include="Settings.cs" />
   </ItemGroup>
   <ItemGroup />

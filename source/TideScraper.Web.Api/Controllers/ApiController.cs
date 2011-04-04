@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using TideScraper.Services;
 using TideScraper.Core;
-using TideScraper.Web.Api.OAuth;
+using TideScraper.Web.Api.Security;
 
 namespace TideScraper.Web.Api.Controllers
 {
@@ -25,7 +25,7 @@ namespace TideScraper.Web.Api.Controllers
             return Json(results, JsonRequestBehavior.AllowGet);
         }
 
-        [OAuthSecured]
+        [RequireAuth]
         public ActionResult StationsKml()
         {
             return View();

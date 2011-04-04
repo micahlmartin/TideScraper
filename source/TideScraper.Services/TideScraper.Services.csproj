@@ -53,6 +53,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GeoService.cs" />
+    <Compile Include="IAccountService.cs" />
+    <Compile Include="IAuthService.cs" />
     <Compile Include="IGeoService.cs" />
     <Compile Include="IScraperService.cs" />
     <Compile Include="ITideService.cs" />
