@@ -56,6 +56,7 @@
     <Compile Include="CollectionNames.cs" />
     <Compile Include="ConsumerRepository.cs" />
     <Compile Include="DatabaseNames.cs" />
+    <Compile Include="IAccountRepository.cs" />
     <Compile Include="IAuthRepository.cs" />
     <Compile Include="IUserRepository.cs" />
     <Compile Include="ITideRepository.cs" />

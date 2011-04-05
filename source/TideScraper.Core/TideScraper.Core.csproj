@@ -45,6 +45,9 @@
   <ItemGroup>
     <Compile Include="DirectionUtils.cs" />
     <Compile Include="ExpandoExtensions.cs" />
+    <Compile Include="IValidate.cs" />
+    <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\Application.cs" />
     <Compile Include="Models\Consumer.cs" />
     <Compile Include="Models\TideDirection.cs" />
     <Compile Include="Models\TideLevel.cs" />
@@ -67,6 +70,7 @@
     <Compile Include="Security\SignatureGeneratorFactory.cs" />
     <Compile Include="Security\SignatureGeneratorNames.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="ValidationError.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

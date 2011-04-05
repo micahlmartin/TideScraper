@@ -7,6 +7,6 @@ namespace TideScraper.Services
 {
     public interface IAccountService
     {
-        
+        ServiceResult<dynamic> CreateApplication(CreateApplicationDetail detail);
     }
 }

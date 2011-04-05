@@ -24,6 +24,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{3AF1EF4D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TideScraper.Web", "TideScraper.Web\TideScraper.Web.csproj", "{276B30BF-2DC2-41FC-975D-3923D4C3ECF1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TideScraper.Services.Tests", "TideScraper.Services.Tests\TideScraper.Services.Tests.csproj", "{5F3F8246-1F86-49CB-A20D-8C380F276201}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = TideScraper.vsmdi
@@ -61,6 +63,10 @@ Global
 		{276B30BF-2DC2-41FC-975D-3923D4C3ECF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{276B30BF-2DC2-41FC-975D-3923D4C3ECF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{276B30BF-2DC2-41FC-975D-3923D4C3ECF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F3F8246-1F86-49CB-A20D-8C380F276201}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F3F8246-1F86-49CB-A20D-8C380F276201}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F3F8246-1F86-49CB-A20D-8C380F276201}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F3F8246-1F86-49CB-A20D-8C380F276201}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -68,5 +74,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{2DC534FD-BAFC-4BFA-B081-9F62A39E8ADB} = {3AF1EF4D-42C0-440F-B002-BF58F9B4ED42}
 		{CA90DDAD-C13C-4E31-B843-8F444945F5C0} = {3AF1EF4D-42C0-440F-B002-BF58F9B4ED42}
+		{5F3F8246-1F86-49CB-A20D-8C380F276201} = {3AF1EF4D-42C0-440F-B002-BF58F9B4ED42}
 	EndGlobalSection
 EndGlobal
